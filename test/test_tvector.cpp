@@ -110,52 +110,39 @@ TEST(TVector, vectors_with_different_size_are_not_equal) {
 }
 
 TEST(TVector, can_add_scalar_to_vector) {
-    bool f = true;
     TVector<int> v(10);
     for (int i = 0; i < 10; ++i) {
         v[i] = i;
     }
     for (int i = 0; i < 10; ++i) {
         v[i] = v[i] + i;
-        if (v[i] != 2 * i) {
-            f = false;
-        }
+        EXPECT_EQ(2 * i, v[i]);
     }
-    EXPECT_EQ(true, f);
 }
 
 TEST(TVector, can_subtract_scalar_from_vector) {
-    bool f = true;
     TVector<int> v(10);
     for (int i = 0; i < 10; ++i) {
         v[i] = i;
     }
     for (int i = 0; i < 10; ++i) {
         v[i] = v[i] - i;
-        if (v[i] != 0) {
-            f = false;
-        }
+        EXPECT_EQ(0, v[i]);
     }
-    EXPECT_EQ(true, f);
 }
 
 TEST(TVector, can_multiply_scalar_by_vector) {
-    bool f = true;
     TVector<int> v(10);
     for (int i = 0; i < 10; ++i) {
         v[i] = i;
     }
     for (int i = 0; i < 10; ++i) {
         v[i] = v[i] * i;
-        if (v[i] != i * i) {
-            f = false;
-        }
+        EXPECT_EQ(i * i, v[i]);
     }
-    EXPECT_EQ(true, f);
 }
 
 TEST(TVector, can_add_vectors_with_equal_size) {
-    bool f = true;
     TVector<int> v(10), v1(10), res(10);
     for (int i = 0; i < 10; ++i) {
         v[i] = i;
@@ -163,11 +150,8 @@ TEST(TVector, can_add_vectors_with_equal_size) {
     }
     res = v + v1;
     for (int i = 0; i < 10; ++i) {
-        if (res[i] != 2 * i) {
-            f = false;
-        }
+        EXPECT_EQ(2 * i, res[i]);
     }
-    EXPECT_EQ(true, f);
 }
 
 TEST(TVector, cant_add_vectors_with_not_equal_size) {
@@ -176,7 +160,6 @@ TEST(TVector, cant_add_vectors_with_not_equal_size) {
 }
 
 TEST(TVector, can_subtract_vectors_with_equal_size) {
-    bool f = true;
     TVector<int> v(10), v1(10), res(10);
     for (int i = 0; i < 10; ++i) {
         v[i] = i;
@@ -184,11 +167,8 @@ TEST(TVector, can_subtract_vectors_with_equal_size) {
     }
     res = v - v1;
     for (int i = 0; i < 10; ++i) {
-        if (res[i] != 0) {
-            f = false;
-        }
+        EXPECT_EQ(0, res[i]);
     }
-    EXPECT_EQ(true, f);
 }
 
 TEST(TVector, cant_subtract_vectors_with_not_equal_size) {

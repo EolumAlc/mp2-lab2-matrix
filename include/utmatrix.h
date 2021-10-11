@@ -194,6 +194,9 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v) {
     if (Size != v.Size) {
         throw "Not_equal_size operator+(const TVector<ValType> &v)";
     }
+    if (StartIndex != v.StartIndex) {
+        throw "Not_equal_StartIndex operator+(const TVector<ValType> &v)";
+    }
     TVector<ValType> res = *this;
     for (int i = 0; i < Size; ++i) {
         res.pVector[i] = res.pVector[i] + v.pVector[i];
@@ -221,6 +224,9 @@ TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v) {
     if (Size != v.Size) {
         throw "Not_equal_size operator-(const TVector<ValType> &v)";
     }
+    if (StartIndex != v.StartIndex) {
+        throw "Not_equal_StartIndex operator-(const TVector<ValType> &v)";
+    }
     TVector<ValType> res = *this;
     for (int i = 0; i < Size; ++i) {
         res.pVector[i] = res.pVector[i] - v.pVector[i];
@@ -233,6 +239,9 @@ template<class ValType>
 ValType TVector<ValType>::operator*(const TVector<ValType> &v) {
     if (Size != v.Size) {
         throw "Not_equal_size operator*(const TVector<ValType> &v)";
+    }
+    if (StartIndex != v.StartIndex) {
+        throw "Not_equal_StartIndex operator*(const TVector<ValType> &v)";
     }
     ValType res = pVector[0] * v.pVector[0];
     for (int i = 1; i < Size; ++i) {

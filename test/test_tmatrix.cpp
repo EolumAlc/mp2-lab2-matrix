@@ -96,8 +96,20 @@ TEST(TMatrix, matrices_with_different_size_are_not_equal) {
 }
 
 TEST(TMatrix, can_add_matrices_with_equal_size) {
-    TMatrix<int> v(10), v1(10);
-    ASSERT_NO_THROW(v + v1);
+    TMatrix<int> v(10), v1(10), res(10);
+    for (int i = 0; i < 10; ++i) {
+        for (int j = i; j < 10; ++j) {
+            v[i][j] = i + j;
+            v1[i][j] = i - 2 * j;
+        }
+    }
+    res = v + v1;
+    for (int i = 0; i < 10; ++i) {
+        for (int j = i; j < 10; ++j) {
+            EXPECT_EQ(2 * i - j, res[i][j]);
+        }
+    }
+//    ASSERT_NO_THROW(v + v1);
 }
 
 TEST(TMatrix, cant_add_matrices_with_not_equal_size) {
@@ -106,8 +118,20 @@ TEST(TMatrix, cant_add_matrices_with_not_equal_size) {
 }
 
 TEST(TMatrix, can_subtract_matrices_with_equal_size) {
-    TMatrix<int> v(10), v1(10);
-    ASSERT_NO_THROW(v - v1);
+    TMatrix<int> v(10), v1(10), res(10);
+    for (int i = 0; i < 10; ++i) {
+        for (int j = i; j < 10; ++j) {
+            v[i][j] = i + j;
+            v1[i][j] = i - 2 * j;
+        }
+    }
+    res = v - v1;
+    for (int i = 0; i < 10; ++i) {
+        for (int j = i; j < 10; ++j) {
+            EXPECT_EQ(3 * j, res[i][j]);
+        }
+    }
+//    ASSERT_NO_THROW(v - v1);
 }
 
 TEST(TMatrix, cant_subtract_matrixes_with_not_equal_size) {

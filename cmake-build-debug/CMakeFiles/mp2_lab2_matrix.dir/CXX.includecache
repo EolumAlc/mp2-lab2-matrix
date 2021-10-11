@@ -332,19 +332,7 @@ cxxabi.h
 acxx_demangle.h
 -
 
-../include/utmatrix.h
-iostream
--
-
-/root/mp2-lab2-matrix/mp2-lab2-matrix/test/test_tmatrix.cpp
-utmatrix.h
-/root/mp2-lab2-matrix/mp2-lab2-matrix/test/utmatrix.h
-gtest/gtest.h
-/root/mp2-lab2-matrix/mp2-lab2-matrix/test/gtest/gtest.h
-
-/root/mp2-lab2-matrix/mp2-lab2-matrix/test/test_tvector.cpp
-utmatrix.h
-/root/mp2-lab2-matrix/mp2-lab2-matrix/test/utmatrix.h
+/root/mp2-lab2-matrix/mp2-lab2-matrix/test/test_main.cpp
 gtest/gtest.h
 /root/mp2-lab2-matrix/mp2-lab2-matrix/test/gtest/gtest.h
 
